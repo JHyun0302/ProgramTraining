@@ -3,19 +3,19 @@ import java.util.Arrays;
 
 public class Bucket_sort{
     public static void bucketsort(int[] arr, int bucketsize) {
-        int [] bucket =new int[bucketsize+1];
-        for (int i=0; i<bucket.length; i++) {
+        int [] bucket =new int[bucketsize];
+        for (int i=0; i<bucketsize; i++) {
             bucket[i]=0; // 0으로 bucket 초기화
         }
 
-        for (int i=0; i<arr.length; i++) {
-            bucket[arr[i]]++; //arr[i] 값에 따라 bucket의 index 증가
+        for (int i=0; i<bucketsize; i++) {
+            bucket[arr[i]]++; // arr[i]값 == index of bucket값
         }
 
-        int outPos=0;
-        for (int i=0; i<bucket.length; i++) { //arr에 저장할 숫자
+        int idx=0;
+        for (int i=0; i<bucketsize; i++) { //arr에 저장할 숫자
             for (int j=0; j<bucket[i]; j++) { //같은 숫자가 몇개 있는지 count
-                arr[outPos++]=i;
+                arr[idx++]=i;
             }
         }
     }

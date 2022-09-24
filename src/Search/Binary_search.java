@@ -2,24 +2,24 @@ package Search;
 import java.util.Scanner;
 
 public class Binary_search {
-    static int recur_binarySearch(int[] arr, int key, int low, int high) {
+    static int recur_binarySearch(int[] arr, int key, int left, int right) {
         int mid;
-        if(low <= high) {
-            mid = (low + high) / 2;
+        if(left <= right) {
+            mid = (left + right) / 2;
             if(key == arr[mid]) return mid;
-            else if(key < arr[mid]) return recur_binarySearch(arr, key ,low, mid-1); // 왼쪽 탐색
-            else return recur_binarySearch(arr, key, mid+1, high); // 오른쪽 탐색
+            else if(key < arr[mid]) return recur_binarySearch(arr, key ,left, mid-1); // 왼쪽 탐색
+            else return recur_binarySearch(arr, key, mid+1, right); // 오른쪽 탐색
         }
         return -1;
     }
 
-    static int iter_binarySearch(int[] arr, int key, int low, int high) {
+    static int iter_binarySearch(int[] arr, int key, int left, int right) {
         int mid;
-        while(low <= high) {
-            mid = (low + high) / 2;
+        while(left <= right) {
+            mid = (left + right) / 2;
             if(key == arr[mid]) return mid;
-            else if(key < arr[mid]) high = mid - 1;
-            else low = mid + 1;
+            else if(key < arr[mid]) right = mid - 1;
+            else left = mid + 1;
         }
         return -1;
     }
@@ -27,8 +27,8 @@ public class Binary_search {
         int[] arr = {1, 3, 5, 7, 8, 10, 20, 35, 99, 100, 200, 1000};
         System.out.println("사용할 호출 방법을 선택하세요.");
         System.out.println("1. 순환 호출 2. 반복 호출");
-        Scanner input = new Scanner(System.in);
-        int num = input.nextInt();
+        Scanner way = new Scanner(System.in);
+        int num = way.nextInt();
 
         System.out.println("{1, 3, 5, 7, 8, 10, 20, 35, 99, 100, 200, 1000} 중 ");
         System.out.print("검색할 데이터를 입력하세요: ");
@@ -36,15 +36,15 @@ public class Binary_search {
         int search = find.nextInt();
 
         if(num == 1) {
-            System.out.println("1. 순환 호출을 이용한 이진 탐색");
+            System.out.print("1. 순환 호출을 이용한 이진 탐색: ");
             System.out.println(recur_binarySearch(arr, search, 0, arr.length-1)); // 2
         }
 
         else if(num == 2) {
-            System.out.println("2. 반복을 이용한 이진 탐색");
+            System.out.print("2. 반복을 이용한 이진 탐색: ");
             System.out.println(iter_binarySearch(arr, search, 0, arr.length-1)); // 6
         }
-        input.close();
+        way.close();
         find.close();
     }
 }

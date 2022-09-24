@@ -4,29 +4,30 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class BFS {
-    static int[][] graph = {{}, {2, 3, 8}, {1, 6, 8}, {1, 5}, {5, 7}, {3, 4, 7}, {2}, {4, 5}, {1, 2}};
+    static int[][] graph = {{}, {2, 3, 8}, {1, 6, 8}, {1, 5}, {5, 7}, {3, 4, 7}, {2}, {4, 5}, {1, 2}}; // index값 == 노드 번호, 배열 속 값 == 연결된 노드들
     static boolean[] visited = new boolean[graph.length];
-    static Queue<Integer> q = new LinkedList<>();
-    static StringBuilder sb = new StringBuilder();
+    static Queue<Integer> queue = new LinkedList<>();
+    static StringBuilder VisitOrder = new StringBuilder();
 
     public static void main(String[] args) {
-        System.out.print("방문순서: ");
-        bfs(1);
-        System.out.println(sb);
+        int start = 1;
+        System.out.print("BFS 방문순서: ");
+        bfs(start);
+        System.out.println(VisitOrder);
     }
 
     public static void bfs(int n){
-        q.offer(n); //enqueue
+        queue.offer(n); //enqueue
         visited[n] = true;
 
-        while (!q.isEmpty()) {
-            int x = q.poll(); // dequeue
-            sb.append(x).append(" ");
+        while (!queue.isEmpty()) {
+            int x = queue.poll(); // dequeue
+            VisitOrder.append(x).append(" ");
 
-            for (int y : graph[x]) {
-                if (!visited[y]) {
-                    q.offer(y);
-                    visited[y] = true;
+            for (int i : graph[x]) {
+                if (!visited[i]) {
+                    visited[i] = true;
+                    queue.offer(i); // 방문하지 않은 노드 enqueue & true만듬
                 }
             }
         }

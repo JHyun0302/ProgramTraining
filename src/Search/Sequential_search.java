@@ -13,8 +13,8 @@ public class Sequential_search {
 
     public static void main(String[] args) {
         int[] arr = { 7, 14, 2, 10, 11, 16, 20, 50, 100, 200, 1000 };
-        System.out.println("{ 7, 14, 2, 10, 11, 16, 20, 50, 100, 200, 1000 } 중 ");
-        System.out.print("검색할 데이터를 입력하세요: ");
+        System.out.println("{ 7, 14, 2, 10, 11, 16, 20, 50, 100, 200, 1000 }");
+        System.out.print("순차 검색할 데이터를 입력하세요: ");
         Scanner input = new Scanner(System.in);
         int search = Integer.parseInt(input.nextLine().trim());
         int result = sequentialSearch(arr, search);

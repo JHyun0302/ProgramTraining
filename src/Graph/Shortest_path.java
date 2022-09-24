@@ -1,87 +1,58 @@
 package Graph;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
-/*
-sample input
-5 6
-1
-5 1 1
-1 2 2
-1 3 3
-2 3 4
-2 4 5
-3 4 6
- */
-
-
-class Node {
-    int idx; //도착 지점
-    int cost; //가는데 거리
-
-    Node(int idx, int cost) { //생성자
-        this.idx = idx;
-        this.cost = cost;
-    }
-}
-
 public class Shortest_path {
+    static int INF = Integer.MAX_VALUE;
+    static int MAX_VERTICES = 7;
+    static int True = 1;
+    static int False = 0;
+    static int weight[][] = {
+            {0, 7, INF, INF, 3, 10, INF},
+            {7, 0, 4, 10, 2, 6, INF},
+            {INF, 4, 0, 2, INF, INF, INF},
+            {INF, 10, 2, 0, 11, 9, 4},
+            {3, 2, INF, 11, 0, INF, 5},
+            {10, 6, INF, 9, INF, 0, INF},
+            {INF, INF, INF, 4, 5, INF, 0}};
+    static int distance[] = new int[MAX_VERTICES];
+    static int found[] = new int[MAX_VERTICES];
+
+    public static  int choose(int distance[], int n, int found[]){
+        int i, min, minpos;
+        min = INF;
+        minpos = -1;
+        for(i = 0; i<n;i++)
+            if(distance[i] < min && found[i] == 0){
+                min = distance[i];
+                minpos = i;
+            }
+        return minpos;
+    }
+
+    public static void dijkestra(int start, int n){
+        int i,u,w;
+        for(i = 0; i<n;i++){ // init
+            distance[i] = weight[start][i];
+            found[i] = False;
+        }
+        found[start] = True; // 시작 정점 방문
+        distance[start] = 0;
+        for(i = 0; i<n-1;i++){
+            u = choose(distance,n,found);
+            found[u] = True;
+            System.out.print(u + " ");
+            for(w=0;w<n;w++){
+                if(found[w] == 0) // 아직 방문하지 않은 정점 중
+                    if(distance[u] + weight[u][w] < distance[w]){ // 최단거리인 정점 찾기
+                        distance[w] = distance[u] + weight[u][w];
+                    }
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("node 개수: ");
-        int V = sc.nextInt(); //노드 개수
-        System.out.print("edge 개수: ");
-        int E = sc.nextInt(); // 간선 개수
-        System.out.print("start: ");
-        int start = sc.nextInt();
-        ArrayList<ArrayList<Node>> graph = new ArrayList<ArrayList<Node>>();
-        for (int i = 0; i < V + 1; i++) {
-            graph.add(new ArrayList<>());
-        }
-        System.out.println("그래프 넣기(a, b, cost)");
-        for (int i = 0; i < E; i++) { // 그래프에 값 넣기
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            int cost = sc.nextInt(); //a에서 b까지 가는데 cost
+        System.out.print("방문한 정점 순서: 0 ");
+        dijkestra(0, MAX_VERTICES);
 
-            graph.get(a).add(new Node(b, cost));
-        }
-        boolean[] visited = new boolean[V + 1]; // 방문 여부
-        int[] dist = new int[V + 1]; // 최소 거리 저장
-
-        for (int i = 0; i < V + 1; i++) {
-            dist[i] = Integer.MAX_VALUE;
-        }
-        dist[start] = 0;
-
-        for (int i = 0; i < V; i++) {
-            int nodeValue = Integer.MAX_VALUE;
-            int nodeIdx = 0;
-            for (int j = 1; j < V + 1; j++) {
-                if (!visited[j] && dist[j] < nodeValue) {
-                    nodeValue = dist[j];
-                    nodeIdx = j;
-                }
-            }
-            visited[nodeIdx] = true;
-
-            // 인접 노드의 최소 거리 값을 갱신
-            for (int j = 0; j < graph.get(nodeIdx).size(); j++) {
-                Node adjNode = graph.get(nodeIdx).get(j);
-                if (dist[adjNode.idx] > dist[nodeIdx] + adjNode.cost) {
-                    dist[adjNode.idx] = dist[nodeIdx] + adjNode.cost;
-                }
-            }
-        }
-
-        for (int i = 1; i < V + 1; i++) {
-            if (dist[i] == Integer.MAX_VALUE) {
-                System.out.println("INF");
-            } else {
-                System.out.println(dist[i]);
-            }
-        }
-        sc.close();
     }
 }
+

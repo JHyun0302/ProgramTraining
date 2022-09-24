@@ -1,20 +1,16 @@
 package Leetcode;
 
-class Solution {
-    public static int integerReplacement(int n) {
-        long [] memo = new long[(n + 1)];
-        for(int i =0; i< n+1; i++) {
-            memo[i] = -1;
-        }
+public class Num397 {
+    public static int integerReplacement(long n, int[] memo) {
         int cnt = 0;
-        long result = intergerReplace(n, cnt, memo);
-        return (int)result;
+        return intergerReplace(n, cnt, memo);
 
     }
-    public static long intergerReplace(long n, int cnt, long[] memo) {
+    public static int intergerReplace(long n, int cnt, int[] memo) {
         if(memo[(int) n] != -1)
-            return memo[(int) n];
+            return  memo[(int) n];
         if (n == 1) {
+
             return cnt;
         }
         if(n % 2 == 0) {
@@ -27,5 +23,15 @@ class Solution {
             memo[(int)n] = Math.min(intergerReplace(n-1, cnt,memo), intergerReplace(n+1, cnt,memo));
             return Math.min(intergerReplace(n-1, cnt,memo), intergerReplace(n+1, cnt,memo));
         }
+    }
+
+    public static void main(String[] args) {
+        long n = 7;
+        int [] memo = new int[(int) (n + 1)];
+        for(int i =0; i< n+1; i++) {
+            memo[i] = -1;
+        }
+        System.out.println("n: " + n);
+        System.out.println(integerReplacement(n, memo));
     }
 }
