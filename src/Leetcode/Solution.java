@@ -1,31 +1,27 @@
-package Leetcode;
-
 class Solution {
     public static int integerReplacement(int n) {
-        long [] memo = new long[(n + 1)];
-        for(int i =0; i< n+1; i++) {
+        int [] memo = new int[(int) (n + 2)];
+        for(int i =0; i< n+2; i++) {
             memo[i] = -1;
         }
-        int cnt = 0;
-        long result = intergerReplace(n, cnt, memo);
-        return (int)result;
+        return intergerReplace(n, memo);
 
     }
-    public static long intergerReplace(long n, int cnt, long[] memo) {
+    public static int intergerReplace(long n, int[] memo) {
+        int result;
         if(memo[(int) n] != -1)
-            return memo[(int) n];
-        if (n == 1) {
-            return cnt;
+            return  memo[(int) n];
+        if (n <= 1) {
+            return 0;
         }
         if(n % 2 == 0) {
-            cnt += 1;
-            memo[(int)n] = intergerReplace(n/2, cnt,memo);
-            return intergerReplace(n/2, cnt,memo);
+            result = intergerReplace(n/2, memo) +1 ;
+            memo[(int)n] = result;
         }
         else {
-            cnt += 1;
-            memo[(int)n] = Math.min(intergerReplace(n-1, cnt,memo), intergerReplace(n+1, cnt,memo));
-            return Math.min(intergerReplace(n-1, cnt,memo), intergerReplace(n+1, cnt,memo));
+            result = Math.min(intergerReplace(n-1, memo), intergerReplace(n+1, memo)) + 1;
+            memo[(int)n] = result;
         }
+        return result;
     }
 }
