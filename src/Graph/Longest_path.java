@@ -3,7 +3,7 @@ package Graph;
 import java.util.Arrays;
 import java.util.Comparator;
 public class Longest_path {
-    static int MAX_VERTICES = 5;
+    static int MAX_VERTICES = 7;
     public static void union(int[] parent, int a, int b) { //a & b 노드 연결
         int a_parent = find(parent, a);
         int b_parent = find(parent, b);
@@ -21,17 +21,14 @@ public class Longest_path {
     }
 
     public static void main(String[] args) {
-        int [][]graph = {{1, 2, 6}, {1, 3, 3}, {1, 4, 1}, {2, 5, 4}, {3, 4, 2}, {3, 5, 5}, {4, 5, 7}}; // ex)1->2까지 cost:6
-        int []parent = new int[MAX_VERTICES+1]; // 사이클 생성 여부
+        int [][]graph = {{1, 2, 6}, {1, 3, 3}, {1, 4, 1}, {2, 5, 4}, {2,7,10}, {3, 4, 2}, {3, 5, 5}, {3,6,8}, {3,7,8}, {4, 5, 7},{5,6,4}}; // ex)1->2까지 cost:6
+        int[] parent = new int[MAX_VERTICES + 1]; // 사이클 생성 여부}
         int total = 0; //가중치 총 합
 
         for (int i = 0; i < parent.length; i++)
             parent[i] = i;
-        /*System.out.println(graph[1][0]);
-        System.out.println(graph[1][1]);
-        System.out.println(graph[1][2]);*/
+
         Arrays.sort(graph, new Comparator<int[]>() { // cost 기준으로 내림차순 정렬
-            @Override
             public int compare(int[] o1, int[] o2) {
                 return o2[2] - o1[2];
             }
