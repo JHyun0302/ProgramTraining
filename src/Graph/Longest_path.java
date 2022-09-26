@@ -44,3 +44,5 @@ public class Longest_path {
         System.out.println("\n최소 비용 신장 트리 가중치의 합은 " + total);
     }
 }
+
+//annotation
