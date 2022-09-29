@@ -1,27 +1,21 @@
 class Solution {
-    public static int integerReplacement(int n) {
-        int [] memo = new int[(int) (n + 2)];
-        for(int i =0; i< n+2; i++) {
-            memo[i] = -1;
-        }
-        return intergerReplace(n, memo);
-
+    public static boolean isSubsequence(String s, String t) {
+        return subseq(s, t, 0, 0);
     }
-    public static int intergerReplace(long n, int[] memo) {
-        int result;
-        if(memo[(int) n] != -1)
-            return  memo[(int) n];
-        if (n <= 1) {
-            return 0;
-        }
-        if(n % 2 == 0) {
-            result = intergerReplace(n/2, memo) +1 ;
-            memo[(int)n] = result;
-        }
+    public static boolean subseq(String s, String t, int idx1, int idx2) {
+        if(idx1 >= s.length())
+            return true;
+        else if(idx2 >= t.length())
+            return false;
         else {
-            result = Math.min(intergerReplace(n-1, memo), intergerReplace(n+1, memo)) + 1;
-            memo[(int)n] = result;
+
+            if(s.charAt(idx1) == t.charAt(idx2)){
+
+                return subseq(s, t, idx1+1, idx2 +1);
+            }
+
+            else
+                return subseq(s, t, idx1, idx2+1);
         }
-        return result;
     }
 }
