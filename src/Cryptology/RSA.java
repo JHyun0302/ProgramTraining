@@ -12,13 +12,13 @@ public class RSA {
         int e = 3;
         int i;
         int d = (pq+1) / e;
-        System.out.println(d);
+        System.out.println("d: " + d);
         int M = 8;
 
         int C = (int)Math.pow(M, e) % N;
         long decode = (long)Math.pow(C, d) % N;
-        System.out.println(C);
-        System.out.println(decode);
+        System.out.println("암호화: " +C);
+        System.out.println("복호화: " +decode);
     }
 
 
