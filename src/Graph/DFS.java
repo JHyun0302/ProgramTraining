@@ -7,6 +7,7 @@ public class DFS {
         int start = 1; // 시작 노드
         System.out.print("DFS 방문순서: ");
         dfs(start);
+
     }
 
     public static void dfs(int n){
