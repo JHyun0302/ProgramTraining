@@ -59,7 +59,7 @@ public class Num207 {
                 adj_mat[i][j] = 0;
             }
         }
-        canFinish(numCourses, prerequisites, visited, adj_mat) { //prerequisites - input
+        canFinish(numCourses, prerequisites, visited, adj_mat); //prerequisites - input
 
     }
 }
