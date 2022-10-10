@@ -2,8 +2,9 @@ package Leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
 
-class Solution {
+public class Num841 {
     public boolean canVisitAllRooms(List<List<Integer>> rooms) {
         List<Integer> visited = new ArrayList<>();
         dfs(visited, rooms, 0);
@@ -21,4 +22,11 @@ class Solution {
                 dfs(visited, rooms, i);
         }
     }
+
+    public static void main(String[] args) {
+        List<List<Integer>> rooms = new ArrayList(Arrays.asList(Arrays.asList(1,2,3 )));
+
+        System.out.println(rooms);
+    }
 }
+
