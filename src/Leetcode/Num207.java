@@ -14,7 +14,7 @@ public class Num207 {
         }
 
         for(i = 0; i< prerequisites.length; i++) {
-            adj_mat[prerequisites[i][1]][prerequisites[i][0]] = 1;
+            adj_mat[prerequisites[i][0]][prerequisites[i][1]] = 1;
         }
         for(i =0; i<numCourses; i++){
             if(adj_mat[i][i] == 1)
