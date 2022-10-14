@@ -42,9 +42,9 @@ public class 게임_맵_최단거리 {
                 cnt = 1;
             }
 
-            if(maps[i][j+1] ){
+           /* if(maps[i][j+1] ){
 
-            }
+            }*/
 
             cnt += dfs(maps, i, j + 1);
             cnt += dfs(maps, i, j - 1);
