@@ -69,14 +69,6 @@ import java.util.Arrays;
 
 public class select
 {
-    public static int[] selectionsort(int[] nums)
-    {
-        Arrays.sort(nums);
-        // your code is here
-        // -----------------------------------
-        // -----------------------------------
-        return(nums);
-    }
     public static int select(int[] arr, int len) {
         /*int min_index = 0;
         for (int i = 0; i < len - 1; i++) {
@@ -89,9 +81,9 @@ public class select
             // i번째 값과 찾은 최솟값을 서로 교환
             swap(arr, min_index, i);
         }
-        return min_index;*/
-        System.out.println("ㅎㅇ");
-        return 1;
+        System.out.println(arr[len-1]);*/
+        Arrays.sort(arr);
+        return arr[len-1];
     }
     private static void swap(int[] a, int i, int j) {
         int temp = a[i];

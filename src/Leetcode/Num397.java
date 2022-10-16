@@ -1,7 +1,7 @@
 package Leetcode;
 
 public class Num397 {
-    public static int integerReplacement(long n, int[] memo) {
+    /*public static int integerReplacement(long n, int[] memo) {
         return intergerReplace(n, memo);
 
     }
@@ -21,16 +21,23 @@ public class Num397 {
             memo[(int)n] = result;
         }
         return result;
+    }*/
+    static int temp =0;
+    public static int integerReplacement(long n) {
+        if(n <= 1)
+            return 0;
+        if(n % 2 == 0)
+            temp = 1+ integerReplacement(n/2);
+        else{
+            temp = Math.min(integerReplacement(n+1), integerReplacement(n-1)) +1;
+        }
+        return temp;
     }
 
     public static void main(String[] args) {
-        long n = 65535;
-        int [] memo = new int[(int) (n + 2)];
-        for(int i =0; i< n+2; i++) {
-            memo[i] = -1;
-        }
+        long n = 4;
         System.out.println("n: " + n);
-        System.out.println(integerReplacement(n, memo));
+        System.out.println(integerReplacement(n));
     }
 }
 
