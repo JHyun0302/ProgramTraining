@@ -8,9 +8,9 @@ import java.util.StringTokenizer;
 public class Pascal_Triangle {
     static int[][] dp;
 
-    public static int[][] pascal_triangle(int n, int[] arr){
+    public static int[][] pascal_triangle(int n){
         int i,j;
-        int res[][] = new int[arr.length+1][arr.length+1];
+        int res[][] = new int[n+1][n+1];
         dp = new int[n+1][n+1];
         dp[0][0] = 1;
         for(i = 1;i<=n; i++){
@@ -25,7 +25,6 @@ public class Pascal_Triangle {
         }
 
         int temp =0;
-        for(int k: arr){
             for(i =0; i<n;i++){
                 temp = i;
                 for(j =0; j<=i;j++){
@@ -33,7 +32,6 @@ public class Pascal_Triangle {
                     temp--;
                 }
             }
-        }
         return res;
     }
     public static void main(String[] args) throws IOException {
@@ -51,15 +49,20 @@ public class Pascal_Triangle {
         arr[0] = 5;
         arr[1] = 3;
         arr[2] = 1;
-        int[][] ans = pascal_triangle(n, arr);
+        int[][] ans = pascal_triangle(n);
 
 
-        for( i = 0;i<n; i++){
-            for( j =0; j<n; j++){
-                System.out.print(ans[i][j]);
+        for(int k: arr){
+            for( j =0; j< k; j++){
+                System.out.print(ans[k-1][j]);
             }
             System.out.println();
         }
+
+
+
+
+
 
     }
 }

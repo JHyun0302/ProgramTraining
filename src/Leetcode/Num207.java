@@ -29,8 +29,10 @@ public class Num207 {
          if(visited[n] == false){
              visited[n] = true;
              for(i =0; i<numCourses; i++){
-                 if(has_cycle(i,numCourses))
-                     return true;
+                 if(adj_mat[n][i] == 1){
+                     if(has_cycle(i,numCourses))
+                         return true;
+                 }
              }
              visited[n] = false;
              return false;
