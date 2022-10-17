@@ -1,7 +1,8 @@
 package Leetcode;
 
+
 class Num392 {
-    static public int isSubsequence(String s, String t) {
+    static public int isSubsequence(String s, String t) {//dp 방식
         int m = s.length();
         int n = t.length();
         int lcs = LCS(s, t, m, n);
@@ -28,7 +29,7 @@ class Num392 {
         System.out.println("n:" +n);
     }
 }
-/*public static boolean isSubsequence(String s, String t) {
+/*public static boolean isSubsequence(String s, String t) { //recursive 방식
     int m = s.length();
     int n = t.length();
     return subseq(s, t, m, n);

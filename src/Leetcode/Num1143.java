@@ -1,7 +1,7 @@
 package Leetcode;
 
 class Num1143 {
-/*       public static int LCS(String X, String Y, int m, int n){
+/*       public static int LCS(String X, String Y, int m, int n){ //recursive방식
            int a,b;
            int result = 0;
            char[] X_char = X.toCharArray();
@@ -32,7 +32,7 @@ class Num1143 {
         System.out.println("result: " +result);
     }*/
 
-    public static int LCS(String X, String Y, int m, int n){
+    public static int LCS(String X, String Y, int m, int n){ //dp 방식
         int dp[][] = new int[m+1][n+1];
         int i, j;
         for(i =1; i<dp.length;i++){
