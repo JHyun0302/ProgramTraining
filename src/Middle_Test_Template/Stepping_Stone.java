@@ -35,9 +35,8 @@ public class Stepping_Stone {
         arr[0] = 3;
         arr[1] = 1;
         arr[2] = 1;
-        arr[3] = 4;
-        arr[4] = 0;
-        arr[5] = 1;
+        arr[3] = 40;
+        arr[4] = 1;
         int ans = step_stone(n,arr);
 
         System.out.println("\n" +ans);
