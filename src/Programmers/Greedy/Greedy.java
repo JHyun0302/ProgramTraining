@@ -1,39 +1,35 @@
 package Programmers.Greedy;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Greedy {
     public static void solution(String number, int k) {
-        String answer = "";
-        int i, j;
-        int[] arr = new int[number.length()];
-        for(i =0; i<arr.length;i++){
-            arr[i] = number.charAt(i) - '0';
-        }
-        int len = number.length() - k;
+        StringBuilder answer = new StringBuilder();
+        int i, j, h;
+        int len = number.length() - k; // return값의 자릿수
         int max = Integer.MIN_VALUE;
-        int creat_val;
         int idx =0;
-        int[] temp = new int[len];
-        for(i =0; i < len; i++){
-            if(max < arr[i]){
-                temp[0] = arr[i];
-                idx = i;
+
+        for(h = 0; h < len; h++){
+            max = Integer.MIN_VALUE;
+            for(j = idx; j< h+ k +1; j++) {
+                if(max < number.charAt(j) - '0'){
+                    max = number.charAt(j) - '0';
+                    idx = j+1;
+                }
             }
+            answer.append(max);
         }
-        for(j = idx; j< len; j++){
-            temp[1] =
-            /*
-            System.out.println(creat_val);
-            max = Math.max(max, creat_val);*/
-        }
-        System.out.println("MAX: " + max);
-        answer = Integer.toString(max);
-        //return answer;
+
+
+        System.out.println(answer);
+        //return answer.toString();
     }
 
     public static void main(String[] args) {
         solution("4177252841", 4);
     }
-
 }
 
 /*
@@ -56,7 +52,10 @@ class Solution {
     }
 }
 */
+
+
+/*
 leetcode
 605
 807
-        1753
+        1753*/
