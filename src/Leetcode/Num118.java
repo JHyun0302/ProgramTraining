@@ -1,5 +1,5 @@
 package Leetcode;
-
+//Pascal's Triangle
 import java.util.List;
 import java.util.ArrayList;
 public class Num118 {
@@ -7,7 +7,7 @@ public class Num118 {
         int i,j;
         int dp[][] = new int[numRows+1][numRows+1];
         dp[0][0] = 1;
-        for(i = 0; i<numRows; i++){
+        for(i = 1; i<numRows; i++){
             dp[0][i] = 1;
             dp[i][0] = 1;
         }

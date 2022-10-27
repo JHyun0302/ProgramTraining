@@ -30,8 +30,8 @@ class Num392 {
     }
 }
 /*public static boolean isSubsequence(String s, String t) { //recursive 방식
-    int m = s.length();
-    int n = t.length();
+    int m = s.length(); // 짧은 길이
+    int n = t.length(); // 긴 길이
     return subseq(s, t, m, n);
 }
     public static boolean subseq(String s, String t, int m, int n) {

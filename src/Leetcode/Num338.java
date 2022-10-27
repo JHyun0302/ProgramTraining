@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Num338 {
-/*
     static int memo[];
     public static int[] countBits(int n) {
         int i;
@@ -44,35 +43,5 @@ public class Num338 {
         for(int i =0; i<n+1; i++)
             System.out.println(dp[i]);
     }
-*/
-    public static int[] countBits(int n) {
-        int[] dp = new int[n+1];
-        int i;
-        dp[0] = 0;
-        dp[1] = 1;
-        dp[2] = 1;
-        if(n == 0)
-            return dp;
-        if(n == 1)
-            return dp;
-        if(n == 2)
-            return dp;
-        for(i = 3; i<= n; i++){
-            if(n % 2 == 0)
-                dp[n] = dp[n/2];
-            else
-                dp[n] = Math.min(dp[n-1],dp[n-2])+1;
-        }
-       return dp;
-    }
 
-    public static void main(String[] args) {
-        int n = 5;
-        int res[] = new int[n+1];
-        res = countBits(n);
-        ArrayList ans = new ArrayList();
-        for(int i =0; i<n+1; i++)
-            ans.add(res[i]);
-        System.out.println(ans);
-    }
 }

@@ -32,7 +32,7 @@ class Num1143 {
         System.out.println("result: " +result);
     }*/
 
-    public static int LCS(String X, String Y, int m, int n){ //dp 방식
+/*    public static int LCS(String X, String Y, int m, int n){ //dp 방식
         int dp[][] = new int[m+1][n+1];
         int i, j;
         for(i =1; i<dp.length;i++){
@@ -48,10 +48,41 @@ class Num1143 {
 
     public static void main(String[] args) {
         String text1 = "abcde";
-        String text2 = "ace";
+        String text2 = "acf";
         int m = text1.length();
         int n = text2.length();
         int result = LCS(text1, text2,m,n);
+        System.out.println("result: " +result);
+    }*/
+
+    public static int LCS(String X, String Y, int m, int n){ //dp 방식
+        char[] x_char = X.toCharArray();
+        char[] y_char = Y.toCharArray();
+        int i,j;
+        int a,b;
+        int result;
+        if(m == 0 || n ==0)
+            return 0;
+        else if(x_char[m-1] == y_char[n-1])
+            result = LCS(X, Y, m-1, n-1) +1;
+
+        else{
+            a = LCS(X, Y, m-1, n);
+            b = LCS(X, Y, m, n-1);
+            if(a>b)
+                return a;
+            else
+                return b;
+        }
+    return result;
+    }
+
+    public static void main(String[] args) {
+        String text1 = "abcde";
+        String text2 = "acf";
+        int m = text1.length();
+        int n = text2.length();
+        int result = LCS(text1, text2, m, n);
         System.out.println("result: " +result);
     }
 }

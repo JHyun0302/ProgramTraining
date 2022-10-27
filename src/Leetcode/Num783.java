@@ -1,8 +1,6 @@
 package Leetcode;
 
-import Tree.BinarySearchTree;
-
-class TreeNode {
+/*class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
@@ -67,4 +65,20 @@ public class Num783 {
         result = minDiffInBST(root);
         System.out.println("result:" + result);
     }
-}
+}*/
+
+
+/*class Solution {
+    Integer ans = Integer.MAX_VALUE, pre = null;
+    public int minDiffInBST(TreeNode root) {
+        if(root.left != null)
+            minDiffInBST(root.left);
+        if(pre != null)
+            ans = Math.min(ans, root.val -pre);
+        pre = root.val;
+        if(root.right != null)
+            minDiffInBST(root.right);
+        return ans;
+    }
+}*/
+
