@@ -1,4 +1,4 @@
-package Leetcode;
+package Leetcode.Recursive;
 
 public class Num394 {
     String ans;

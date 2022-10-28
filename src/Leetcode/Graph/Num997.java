@@ -1,4 +1,4 @@
-package Leetcode;
+package Leetcode.Graph;
 
 public class Num997 {
     /*public int findJudge(int n, int[][] trust) {

@@ -1,4 +1,4 @@
-package Leetcode;
+package Leetcode.Recursive;
 
 
 import Tree.BinarySearchTree;

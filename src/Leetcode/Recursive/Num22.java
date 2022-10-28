@@ -1,4 +1,4 @@
-package Leetcode;
+package Leetcode.Recursive;
 //괄호문제
 import java.util.List;
 import java.util.ArrayList;

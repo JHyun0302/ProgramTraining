@@ -1,4 +1,4 @@
-package Leetcode;
+package Leetcode.DP;
 
 public class Num1014 {
     public int maxScoreSightseeingPair(int[] values) {

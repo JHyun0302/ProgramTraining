@@ -1,4 +1,4 @@
-package Leetcode;
+package Leetcode.Recursive;
 
 /*class TreeNode {
     int val;

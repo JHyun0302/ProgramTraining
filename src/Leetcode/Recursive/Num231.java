@@ -1,4 +1,4 @@
-package Leetcode;
+package Leetcode.Recursive;
 
 public class Num231 {
     public static boolean isPowerOfTwo(int n) {

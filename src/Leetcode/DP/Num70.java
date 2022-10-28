@@ -1,4 +1,4 @@
-package Leetcode;
+package Leetcode.DP;
 class Num70 {
         static int memo[];
         static int ans =0;

@@ -1,4 +1,4 @@
-package Leetcode;
+package Leetcode.Recursive;
 
 class Num1143 {
 /*       public static int LCS(String X, String Y, int m, int n){ //recursive방식

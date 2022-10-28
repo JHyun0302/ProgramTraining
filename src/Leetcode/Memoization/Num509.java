@@ -1,4 +1,4 @@
-package Leetcode;
+package Leetcode.Memoization;
 
 public class Num509 {
     static int ans;

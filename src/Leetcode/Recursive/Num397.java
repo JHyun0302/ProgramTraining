@@ -1,4 +1,4 @@
-package Leetcode;
+package Leetcode.Recursive;
 
 public class Num397 {
     /*public static int integerReplacement(long n, int[] memo) {

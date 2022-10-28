@@ -1,4 +1,4 @@
-package Leetcode;
+package Leetcode.DP;
 
 public class Num983 {
     public int mincostTickets(int[] days, int[] costs) {
