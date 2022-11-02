@@ -1,9 +1,6 @@
 package Programmers.Greedy;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-public class Greedy {
+public class MakeBigNumber {
     public static void solution(String number, int k) {
         StringBuilder answer = new StringBuilder();
         int i, j, h;
