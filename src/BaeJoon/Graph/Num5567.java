@@ -1,4 +1,4 @@
-package BaeJoon;
+package BaeJoon.Graph;
 
 import java.io.BufferedReader;
 import java.io.IOException;
