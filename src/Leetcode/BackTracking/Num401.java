@@ -30,7 +30,7 @@ public class Num401 {
     }
 
     public static void main(String[] args) {
-        readBinaryWatch(1);
+        readBinaryWatch(2);
 
     }
 }
