@@ -19,7 +19,7 @@ public class Num47 {
         }
         else {
             for(int i = 0; i < nums.length; i++){
-                if(visit[i] == true && temp.contains(nums[i]))
+                if(visit[i] == true && temp.contains(nums[i])) // 다시 생각해!!!
                     continue;
                 visit[i] = true;
                 temp.add(nums[i]);
