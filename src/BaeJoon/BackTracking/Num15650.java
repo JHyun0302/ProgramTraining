@@ -9,7 +9,7 @@ public class Num15650 {
     static int N;
     static int M;
     static int[] arr;
-    static boolean[] visit;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -18,18 +18,19 @@ public class Num15650 {
         arr = new int[M];
         dfs(0, 1);
     }
-    public static void dfs(int depth, int at){
-        if(depth == M){
-            for(int val: arr){
+
+    public static void dfs(int depth, int at) {
+        if (depth == M) {
+            for (int val : arr) {
                 System.out.print(val + " ");
             }
             System.out.println();
             return;
         }
 
-        for(int i=at; i<=N; i++) {
+        for (int i = at; i <= N; i++) {
             arr[depth] = i;
-            dfs(depth + 1, i+1);
+            dfs(depth + 1, i + 1);
         }
     }
 
