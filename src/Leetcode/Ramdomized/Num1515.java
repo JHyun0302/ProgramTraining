@@ -44,15 +44,16 @@ public class Num1515 {
                 yMax = integer;
             }
         }
-        double Xmiddle = Math.round((double) (xMin + xMax) / xPoint.size() * 100000) / 100000.0;
-        double Ymiddle = Math.round((double) (yMin + yMax) / yPoint.size() * 100000) / 100000.0;
-        System.out.println(Xmiddle);
-        System.out.println(Ymiddle);
+
+
+        double Xmiddle = Math.round((double) (xMin + xMax) / xPoint.size() * 100000) / 100000.0; // 0.66667
+        double Ymiddle = Math.round((double) (yMin + yMax) / yPoint.size() * 100000) / 100000.0; // 0.33333
+
         while (true) {
-            double xCenter = xMin + rand.nextDouble() * (xMax - xMin);
-            double yCenter = yMin + rand.nextDouble() * (yMax - yMin);
-            System.out.println(xCenter);
-            System.out.println(yCenter);
+            double xCenter = Math.round((xMin + rand.nextDouble() * (xMax - xMin)) * 100000) / 100000.0;
+            double yCenter = Math.round((yMin + rand.nextDouble() * (yMax - yMin)) * 100000) / 100000.0;
+            //System.out.println(xCenter);
+            //System.out.println(yCenter);
             double distanceSum = 0;
             if (xCenter == Xmiddle && yCenter == Ymiddle) {
                 for (int i = 0; i < xPoint.size(); i++) {
