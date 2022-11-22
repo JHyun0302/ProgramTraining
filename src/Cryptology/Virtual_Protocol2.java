@@ -32,8 +32,8 @@ public class Virtual_Protocol2 {
         /**
          * B1 to A2 (E(R, KAB)) // Bob가 Alice에게 암호화해서 보냄
          */
-       
 
+        //미완성
         return BobRandom;
     }
 
