@@ -34,7 +34,7 @@ public class Virtual_Protocol2 {
          */
 
         //미완성
-        return BobRandom;
+        return 0;
     }
 
     public static int A2toB2(int AliceId) {
@@ -58,7 +58,7 @@ public class Virtual_Protocol2 {
         }
     }
 
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
         int AliceId = A1toB1();
         int BobRandom = B1toA2();
         int AliceIdHash = A2toB2(AliceId);
@@ -66,5 +66,5 @@ public class Virtual_Protocol2 {
         Virtual_Protocol_Alice Alice = new Virtual_Protocol_Alice(AliceId, BobRandom, AliceIdHash);
         VirtualProtocol(Bob, Alice, AliceIdHash);
 
-    }
+    }*/
 }
