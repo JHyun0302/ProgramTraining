@@ -1,16 +1,38 @@
 package Cryptology;
 
 public class OpenKeyAlice {
-    public int AliceId;
+    private String AliceId;
     private String openKey = "";
     private String personalKey = "";
 
-    public int getAliceId() {
+    private String sessionKey = "";
 
+    private int random;
+
+
+    public String getSessionKey() {
+        return sessionKey;
+    }
+
+    public void setSessionKey(String sessionKey) {
+        this.sessionKey = sessionKey;
+    }
+
+
+    public int getRandom() {
+        return random;
+    }
+
+    public void setRandom(int random) {
+        this.random = random;
+    }
+
+
+    public String getAliceId() {
         return AliceId;
     }
 
-    public void setAliceId(int aliceId) {
+    public void setAliceId(String aliceId) {
         AliceId = aliceId;
     }
 
