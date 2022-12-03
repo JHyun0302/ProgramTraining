@@ -17,7 +17,7 @@ public class Num2437 {
          * 같은 숫자가 없을경우
          * answer보다 작은 숫자를 내림차순으로 정렬(새로운 배열 or 리스트 필요)
          * 작은 숫자들로 구성된 배열에서 나올 수 있는 경우의 수와 answer와 같은 값 찾기
-         * answer와 같은 값 없으면 answer가 답임
+         * answer와 같은 값 없으면 answer가 답임!
          */
 
         boolean answercnt;
