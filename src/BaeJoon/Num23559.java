@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
 public class Num23559 {
     public static int selectLunch(int day, int money, int[][] menu, int sum) {
         int i;
-        // 5000원짜리 맛 내림차순 정렬
+        // 5000원짜리 맛 내림차순 정렬!
         Arrays.sort(menu, new Comparator<int[]>() {
             @Override
             public int compare(int[] o1, int[] o2) {
