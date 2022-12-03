@@ -4,28 +4,28 @@ import java.util.Arrays;
 
 public class Merge_sort {
     public static void merge(int[] arr, int left, int mid, int right) {
-        int[] sorted = new int[right+1];
+        int[] sorted = new int[right + 1];
         int i = left;
-        int j = mid+1;
+        int j = mid + 1;
         int k = left;
         int l;
 
-        /* 분할 정렬된 list의 합병 */
-        while(i<=mid && j<=right){
-            if(arr[i]<=arr[j])
+        /* 분할 정렬된 list의 합병  */
+        while (i <= mid && j <= right) {
+            if (arr[i] <= arr[j])
                 sorted[k++] = arr[i++];
             else
                 sorted[k++] = arr[j++];
         }
         // 나머지 복사
-        if(i>mid)
-            for(l=j; l<=right; l++)
+        if (i > mid)
+            for (l = j; l <= right; l++)
                 sorted[k++] = arr[l];
         else
-            for(l=i; l<=mid; l++)
+            for (l = i; l <= mid; l++)
                 sorted[k++] = arr[l];
 
-        for(l=left; l<=right; l++){
+        for (l = left; l <= right; l++) {
             arr[l] = sorted[l];
         }
     }
@@ -41,11 +41,12 @@ public class Merge_sort {
         }
 
     }
-    public static void main(String[] args){
-        int [] arr = {10, 2, 6, 4, 3, 7, 5};
+
+    public static void main(String[] args) {
+        int[] arr = {10, 2, 6, 4, 3, 7, 5};
         int len = arr.length;
-        merge_sort(arr, 0, len-1);
-        System.out.print("Merge Sort:" );
+        merge_sort(arr, 0, len - 1);
+        System.out.print("Merge Sort:");
         System.out.println(Arrays.toString(arr));
     }
 }
