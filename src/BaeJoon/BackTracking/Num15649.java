@@ -44,7 +44,7 @@ public class Num15649 {
                 arr[depth] = i + 1;
                 dfs(depth + 1);
                 visit[i] = false;
-                
+
             }
         }
     }
