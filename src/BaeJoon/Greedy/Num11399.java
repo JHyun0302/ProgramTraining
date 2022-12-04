@@ -14,14 +14,14 @@ public class Num11399 {
         int[] arr = new int[count];
         st = new StringTokenizer(br.readLine());
         int i, j;
-        for(i =0; i<count;i++){
-           arr[i] =  Integer.parseInt(st.nextToken());
+        for (i = 0; i < count; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
         }
-        int answer =0;
+        int answer = 0;
         int cnt = 5;
         int prev = 0;
         Arrays.sort(arr);
-        for(i = 0; i < count; i++){
+        for (i = 0; i < count; i++) {
             answer += prev + arr[i];
             prev += arr[i];
         }
@@ -29,3 +29,5 @@ public class Num11399 {
 
     }
 }
+
+
