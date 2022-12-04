@@ -1,4 +1,4 @@
-package BaeJoon;
+package BaeJoon.DP;
 
 import java.util.Scanner;
 
