@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Num1515 {
-    static int[][] positions = {{1, 1}, {0, 0}, {2, 0}};
+    static int[][] positions = {{1, 1}, {0, 0}, {2, 0}};// {{0, 1}, {1, 0}, {1, 2}, {2, 1}}; // {{1, 1}, {3, 3}};
 
     static Random rand;
     static List<Integer> xPoint = new ArrayList<>();
@@ -23,10 +23,10 @@ public class Num1515 {
         }
 
         rand = new Random();
-        int xMin = Integer.MAX_VALUE;
-        int xMax = Integer.MIN_VALUE;
-        int yMin = Integer.MAX_VALUE;
-        int yMax = Integer.MIN_VALUE;
+        double xMin = Integer.MAX_VALUE;
+        double xMax = Integer.MIN_VALUE;
+        double yMin = Integer.MAX_VALUE;
+        double yMax = Integer.MIN_VALUE;
         for (Integer integer : xPoint) {
             if (xMin > integer) {
                 xMin = integer;
@@ -35,7 +35,6 @@ public class Num1515 {
                 xMax = integer;
             }
         }
-
         for (Integer integer : yPoint) {
             if (yMin > integer) {
                 yMin = integer;
@@ -44,24 +43,76 @@ public class Num1515 {
                 yMax = integer;
             }
         }
+        double xRange;
+        double yRange;
+        double distanceSum = Integer.MAX_VALUE;
+        double temp;
+        double saveX = 0;
+        double saveY = 0;
 
-
-        double Xmiddle = Math.round((double) (xMin + xMax) / xPoint.size() * 100000) / 100000.0; // 0.66667
-        double Ymiddle = Math.round((double) (yMin + yMax) / yPoint.size() * 100000) / 100000.0; // 0.33333
-
-        while (true) {
-            double xCenter = Math.round((xMin + rand.nextDouble() * (xMax - xMin)) * 100000) / 100000.0;
-            double yCenter = Math.round((yMin + rand.nextDouble() * (yMax - yMin)) * 100000) / 100000.0;
-            //System.out.println(xCenter);
-            //System.out.println(yCenter);
-            double distanceSum = 0;
-            if (xCenter == Xmiddle && yCenter == Ymiddle) {
-                for (int i = 0; i < xPoint.size(); i++) {
-                    distanceSum += euclideanDistance(xCenter, yCenter, xPoint.get(i), yPoint.get(i));
+        /**
+         * 아래 for문을 통해 오차범위 0.1까지 뽑아낸다.
+         */
+        for (double i = xMin; i <= xMax; ) {
+            xRange = i;
+            for (double j = yMin; j <= yMax; ) {
+                yRange = j;
+                temp = 0; // 점들까지 거리 합
+                for (int k = 0; k < xPoint.size(); k++) {
+                    temp += euclideanDistance(xRange, yRange, xPoint.get(k), yPoint.get(k));
                 }
-                return distanceSum;
+                if (distanceSum > temp) {
+                    distanceSum = temp;
+                    saveX = xRange;
+                    saveY = yRange;
+                }
+                j += 0.1;
+
             }
+            i += 0.1;
         }
+        /**
+         * while문을 통해 오차범위를 0.01 -> 0.001 -> 0.0001 -> 0.00001까지 줄인다.
+         */
+        System.out.println(saveX);
+        System.out.println(saveY);
+        int num = 1;
+        while (num < 5) {
+            for (double i = saveX - (1 / Math.pow(10, num)); i <= saveX + (1 / Math.pow(10, num)); ) {
+                xRange = i;
+                for (double j = saveY - (0.1 / Math.pow(10, num)); j <= saveY + (0.1 / Math.pow(10, num)); ) {
+                    yRange = j;
+                    temp = 0; // 점들까지 거리 합
+                    for (int k = 0; k < xPoint.size(); k++) {
+                        temp += euclideanDistance(xRange, yRange, xPoint.get(k), yPoint.get(k));
+                    }
+                    if (distanceSum > temp) {
+                        distanceSum = temp;
+                        saveX = xRange;
+                        saveY = yRange;
+                    }
+                    j += (1 / Math.pow(10, num + 1));
+                }
+                i += (1 / Math.pow(10, num + 1));
+            }
+            num++;
+
+        }
+
+        System.out.println(saveX);
+        System.out.println(saveY);
+        /**
+         * 1번 for문: xCenter의 값을 정해줌
+         * 2번 for문: yCenter의 값을 정해줌
+         * 3번 for문: 각 점들까지 거리 합을 구함
+         * 처음에 오차범위를 0.1로 생각하고 0.1씩 올리면서 값을 찾는다
+         * 1번째에서 찾은 값의 오차범위를 줄이기 위해 0.01로 오차범위로 두고 또 찾는다
+         * 다음의 오차범위는 0.01로 두고 또 찾는다.
+         * ...
+         * 마지막으로 오차범위가 0.00001로 두고 값을 찾는다...
+         */
+
+        return distanceSum;
     }
 
 
