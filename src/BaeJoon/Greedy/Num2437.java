@@ -1,4 +1,4 @@
-package BaeJoon;
+package BaeJoon.Greedy;
 
 import java.io.BufferedReader;
 import java.io.IOException;
