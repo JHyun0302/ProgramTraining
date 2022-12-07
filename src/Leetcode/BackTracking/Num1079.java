@@ -29,4 +29,5 @@ public class Num1079 {
         int result = numTilePossibilities(tiles);
         System.out.println(result);
     }
+
 }
