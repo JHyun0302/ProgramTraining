@@ -49,12 +49,12 @@ public class Num14889 {
         }
     }
 
-    static void diff() {
+    public static void diff() {
         int team_start = 0;
         int team_link = 0;
 
         for (int i = 0; i < N - 1; i++) {
-            for (int j = i + 1; j < N - 1; j++) {
+            for (int j = i + 1; j < N; j++) {
                 if (vis[i] == true && vis[j] == true) {
                     team_start += S[i][j];
                     team_start += S[j][i];
