@@ -34,4 +34,5 @@ public class Num15652 {
             perm(arr, M, N, depth + 1, i);
         }
     }
+
 }
