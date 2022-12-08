@@ -14,7 +14,7 @@ public class Num15663 {
     static boolean[] visit;
     public static StringBuilder sb = new StringBuilder();
 
-    public static void dfs(int depth, int startIdx) {
+    public static void dfs(int depth) {
         if (depth == length) {
             for (int val : temp) {
                 sb.append(val + " ");
@@ -23,9 +23,17 @@ public class Num15663 {
             return;
         }
 
-        for (int i = startIdx; i < arraryNum; i++) {
-            temp[depth] = arr[i];
-            dfs(depth + 1, i+1);
+        int before = 0;
+        for (int i = 0; i < arraryNum; i++) {
+            if(visit[i] == false){
+                if(before != arr[i]){
+                    visit[i] = true;
+                    temp[depth] = arr[i];
+                    before = arr[i];
+                    dfs(depth + 1);
+                    visit[i] = false;
+                }
+            }
         }
     }
 
@@ -45,7 +53,7 @@ public class Num15663 {
         }
         Arrays.sort(arr);
 
-        dfs(0, 0);
+        dfs(0);
         System.out.println(sb);
     }
 }
