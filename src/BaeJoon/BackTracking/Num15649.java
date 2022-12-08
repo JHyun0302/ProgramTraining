@@ -14,9 +14,7 @@ public class Num15649 {
     public static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
-
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         // 정적변수 N과 M을 초기화해준다.
