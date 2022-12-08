@@ -1,25 +1,16 @@
 package Middle_Test_Template;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.*;
-
-import static java.lang.System.*;
-
-
-class Edge <W,V>{
-    private W weight;
-    private V v;
-
-    public void set_Edge(W weight, V v){
-        this.weight = weight;
-        this.v = v;
-    }
-
-}
-
 /*public class Longest_Time_Path {
+    class Edge <W,V>{
+        private W weight;
+        private V v;
+
+        public void set_Edge(W weight, V v){
+            this.weight = weight;
+            this.v = v;
+        }
+
+    }
     static int node;
     static int edge;
     static int start_node;
