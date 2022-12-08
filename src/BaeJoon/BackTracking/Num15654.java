@@ -8,8 +8,8 @@ import java.util.StringTokenizer;
 
 
 public class Num15654 {
-    static int arraryNum;    // 정적변수로 변경
-    static int length;    // 정적변수로 변경
+    static int arraryNum;
+    static int length;
     static int[] arr;
     static boolean[] visit;
 
@@ -39,7 +39,6 @@ public class Num15654 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        // 정적변수 N과 M을 초기화해준다.
         arraryNum = Integer.parseInt(st.nextToken());
         length = Integer.parseInt(st.nextToken());
 
@@ -51,7 +50,6 @@ public class Num15654 {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(arr);
-
 
         dfs(0, length);
         System.out.println(sb);
