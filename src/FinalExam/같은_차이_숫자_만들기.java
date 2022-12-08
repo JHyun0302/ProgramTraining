@@ -84,3 +84,9 @@ public class 같은_차이_숫자_만들기 {
         System.out.println(sb);
     }
 }
+
+/**
+ * 2
+ * 3 7
+ * 2 1
+ */

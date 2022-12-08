@@ -42,6 +42,11 @@ public class make1 {
             list.clear();
             testCase--;
         }
-
     }
 }
+
+/**
+ * 2
+ * 8
+ * 34
+ */
