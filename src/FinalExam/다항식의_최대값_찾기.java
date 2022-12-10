@@ -1,29 +1,25 @@
 package FinalExam;
 
-import java.util.Random;
-
 public class 다항식의_최대값_찾기 {
-    static double maxValue;
-    static Random rand;
 
+    public static double findMaxValue() {
+        double result = 0;
 
-    public static int findMaxValue() {
-        rand = new Random();
-        int min = -10;
-        int max = 10;
-        while (true) {
-            maxValue = rand.nextInt(max + min) * min;
-
-
-            /*if (nums[r] == target) {
-                return r;
-            }*/
-
+        for (double pt = 10; pt >= 0.0001; pt /= 10) {
+            for (double x = -10; x <= 10; x += pt) {
+                result = Math.min(result, solve(x));
+            }
         }
+
+        return result;
+    }
+
+    static double solve(double x) {
+        return (Math.pow(x, 6) - 2 * Math.pow(x, 4) - 3 * Math.pow(x, 3) - 6 * Math.pow(x, 2) + x - 1);
     }
 
     public static void main(String[] args) {
-        System.out.println(findMaxValue());
-
+        double ret = findMaxValue();
+        System.out.println("y: " + ret);
     }
 }
