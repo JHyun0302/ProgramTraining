@@ -3,9 +3,7 @@ package FinalExam;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class 같은_차이_숫자_만들기 {
     public static StringBuilder sb = new StringBuilder();
@@ -41,28 +39,32 @@ public class 같은_차이_숫자_만들기 {
     }*/
 
     /**
-     * Greedy
+     * backtracking
      */
-    public static void calc() {
-        int cnt = 0;
-        int eachcount = numberOfDigits / 2; // ABAB, ABA, ABABAB, AB, A...(A와 B의 개수)
-        for (int i = 1; i <= 9; i++) { //최대 자리 숫자, 100...
-            for (int j = 0; j <= 9; j++) {
-                if (Math.abs(i - j) == diff) {
-                    list.add(String.valueOf(i));
-                    list.add(String.valueOf(j));
 
-                    for (int k = 0; k < eachcount; k++) {
-                        sb.append(list.get(0) + list.get(1));
-                    }
-                    if (numberOfDigits % 2 == 1) {
-                        sb.append(list.get(0));
-                    }
-                    sb.append(" ");
-                    list.clear();
-                }
-
+    static int compare =0;
+    public static void dfs(int depth) {
+        if(depth == numberOfDigits){
+            if(num[0] == 0){
+                return;
             }
+            compare =0;
+            for(int i =0; i<num.length-1; i++){
+                if(Math.abs(num[i] - num[i+1])== diff){
+                    compare += 1;
+                }
+            }
+            if(compare +1 == numberOfDigits){
+                for (int i : num) {
+                    sb.append(i);
+                }
+                sb.append(" ");
+            }
+            return;
+        }
+        for(int i=0; i<10; i++){
+            num[depth] = i;
+            dfs(depth+1);
         }
     }
 
@@ -77,11 +79,12 @@ public class 같은_차이_숫자_만들기 {
             num = new int[numberOfDigits];
             diff = Integer.parseInt(st.nextToken());
 
-            calc();
-            sb.append("\n");
+            dfs(0);
+            System.out.println(sb);
+
             testCase--;
         }
-        System.out.println(sb);
+
     }
 }
 
