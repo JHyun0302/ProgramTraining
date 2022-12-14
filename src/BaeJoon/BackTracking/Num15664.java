@@ -31,6 +31,7 @@ public class Num15664 {
                     temp[depth] = arr[i];
                     before = arr[i];
                     dfs(depth + 1, i+1);
+                    //dfs(depth + 1, i); //똑같은 결과 -> why? before에서 중복 걸러줘서
                     visit[i] = false;
                 }
             }
