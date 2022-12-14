@@ -1,76 +1,46 @@
 package BaeJoon.BackTracking;
 
-import java.io.IOException;
-import java.util.Scanner;
-
+import java.util.*;
 public class Num14889 {
     static int N;
-    static int M;
-    static int[][] S;
-    static boolean[] vis;
+    static boolean check[] = new boolean[21];
+    static int ability[][] = new int[21][21];
+    static int ans = 1000000000;
 
-    static int[][] diff;
-
-    static int Min = Integer.MAX_VALUE;
-
-    public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in);
-        N = sc.nextInt();
-        S = new int[N][N];
-        vis = new boolean[N];
-        int cnt = 0;
-        for (int i = 0; i < N; i++) {
-            cnt += i;
-        }
-        diff = new int[N][N];
-        for (int i = 0; i < S.length; i++) {
-            for (int j = 0; j < S[i].length; j++) {
-                S[i][j] = sc.nextInt();
+    public static void DFS(int idx, int n) {
+        if(n == N/2) {
+            int start = 0;
+            int link = 0;
+            for (int i = 1; i <= N; i++) {
+                for (int j = 1; j <= N; j++) {
+                    if(check[i] && check[j]) start += ability[i][j];
+                    if(!check[i] && !check[j]) link += ability[i][j];
+                }
             }
-        }
-
-
-        perm(0, 0);
-        System.out.println(Min);
-    }
-
-    public static void perm(int idx, int count) {
-        if (count == N / 2) {
-            diff();
+            ans = Math.min(Math.abs(start-link),ans);
             return;
         }
 
-        for (int i = idx; i < N; i++) {
-            if (!vis[i]) {
-                vis[i] = true;
-                perm(i + 1, count + 1);
-                vis[i] = false;
+        for (int i = idx; i <= N; i++) {
+            if(!check[i]) {
+                check[i] = true;
+                DFS(i+1,n+1);
+                check[i] = false;
             }
         }
+
     }
 
-    public static void diff() {
-        int team_start = 0;
-        int team_link = 0;
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        N = sc.nextInt();
 
-        for (int i = 0; i < N - 1; i++) {
-            for (int j = i + 1; j < N; j++) {
-                if (vis[i] == true && vis[j] == true) {
-                    team_start += S[i][j];
-                    team_start += S[j][i];
-                } else if (vis[i] == false & vis[j] == false) {
-                    team_link += S[i][j];
-                    team_link += S[j][i];
-                }
+        for (int i = 1; i <= N; i++) {
+            for (int j = 1; j <= N; j++) {
+                ability[i][j] = sc.nextInt();
             }
         }
-        int val = Math.abs(team_start - team_link);
-
-        if (val == 0) {
-            System.out.println(val);
-            System.exit(0);
-        }
-
-        Min = Math.min(val, Min);
+        DFS(1,0);
+        System.out.println(ans);
     }
 }
