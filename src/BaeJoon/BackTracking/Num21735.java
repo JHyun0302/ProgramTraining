@@ -16,13 +16,8 @@ public class Num21735 {
             initSize = Math.max(initSize, snowSize);
             return;
         }
-        for (int i = 1; i <= 2; i++) {
-            if (i == 1) {
-                dfs(depth + 1, snowSize + arr[position + i], position + i);
-            } else {
-                dfs(depth + 1, (snowSize / 2) + arr[position + i], position + i);
-            }
-        }
+        dfs(depth + 1, snowSize + arr[position + 1], position + 1);
+        dfs(depth + 1, (snowSize / 2) + arr[position + 2], position + 2);
     }
 
     public static void main(String[] args) throws IOException {
@@ -34,7 +29,7 @@ public class Num21735 {
         arr = new int[101];
 
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < length; i++) {
+        for (int i = 1; i <= length; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
