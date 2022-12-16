@@ -38,20 +38,21 @@ public class Num9742 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
+        while(st.nextToken()!=null) {
+            input = st.nextToken();
+            order = Integer.parseInt(st.nextToken());
 
-        input = st.nextToken();
-        order = Integer.parseInt(st.nextToken());
-
-        inputLength = input.length();
-        arr = new String[inputLength];
-        temp = new String[inputLength];
-        visit = new boolean[inputLength];
-        for (int i = 0; i < inputLength; i++) {
-            arr[i] = String.valueOf(input.charAt(i));
-            temp[i] = String.valueOf(input.charAt(i));
+            inputLength = input.length();
+            arr = new String[inputLength];
+            temp = new String[inputLength];
+            visit = new boolean[inputLength];
+            for (int i = 0; i < inputLength; i++) {
+                arr[i] = String.valueOf(input.charAt(i));
+                temp[i] = String.valueOf(input.charAt(i));
+            }
+            sb.append(input + " " + order + " " + '=' + " ");
+            dfs(0);
         }
-        sb.append(input + " " + order + " " + '=' + " ");
-        dfs(0);
         if (sb.length() == (input.length() + String.valueOf(order).length() + 4)) {
             sb.append("No permutation");
         }
