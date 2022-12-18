@@ -29,7 +29,8 @@ public class Num15655 {
             if (visit[i] == false) {
                 visit[i] = true;
                 temp[depth] = arr[i];
-                dfs(depth + 1, length, i+1);
+                dfs(depth + 1, length, i);
+                //dfs(depth + 1, length, i); 으로 해도 정답 나옴 -> why? visit[i]로 막혀서 숫자 넘어감
                 visit[i] = false;
             }
         }

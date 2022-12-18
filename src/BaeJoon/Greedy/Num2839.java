@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+
 public class Num2839 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -21,7 +22,6 @@ public class Num2839 {
                 sugar -=  3;
                 answer++;
             }
-
             else if(sugar  > 5){
                 sugar -=  5;
                 answer++;
@@ -32,7 +32,6 @@ public class Num2839 {
             }
 
         }
-
         System.out.println(answer);
     }
 }
