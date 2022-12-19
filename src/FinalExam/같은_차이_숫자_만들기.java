@@ -17,7 +17,7 @@ public class 같은_차이_숫자_만들기 {
     /**
      * Brute Force
      */
-    public static void calc() {
+/*    public static void calc() {
         for (int i = (int) Math.pow(10, numberOfDigits - 1); i < (int) Math.pow(10, numberOfDigits); i++) {
             int cnt = 0;
             int temp = i;
@@ -36,13 +36,13 @@ public class 같은_차이_숫자_만들기 {
 
         }
         System.out.println();
-    }
+    }*/
 
     /**
      * backtracking
      */
 
-/*    static int compare =0;
+    static int compare =0;
     public static void dfs(int depth) {
         if(depth == numberOfDigits){
             if(num[0] == 0){
@@ -66,7 +66,7 @@ public class 같은_차이_숫자_만들기 {
             num[depth] = i;
             dfs(depth+1);
         }
-    }*/
+    }
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -79,8 +79,8 @@ public class 같은_차이_숫자_만들기 {
             num = new int[numberOfDigits];
             diff = Integer.parseInt(st.nextToken());
 
-            calc(); //brute force
-            //dfs(0); //backtrack
+            //calc(); //brute force
+            dfs(0); //backtrack
             System.out.println(sb);
 
             testCase--;
