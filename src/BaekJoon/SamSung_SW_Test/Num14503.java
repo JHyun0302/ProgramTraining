@@ -1,4 +1,4 @@
-package SamSung_SW_Test;
+package BaekJoon.SamSung_SW_Test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
